@@ -479,7 +479,7 @@ bool EDPSimple::processLocalReaderProxyData(
     {
         // TODO(Ricardo) Write a getCdrSerializedPayload for ReaderProxyData.
         CacheChange_t* change = writer->first->new_change([this]() -> uint32_t {
-                        return mp_PDP->builtin_attributes().readerPayloadSize;
+                        return mp_PDP->builtin_attributes().writerPayloadSize;
                     },
                         ALIVE, rdata->key());
 
@@ -641,7 +641,7 @@ bool EDPSimple::removeLocalReader(
         InstanceHandle_t iH;
         iH = (R->getGuid());
         CacheChange_t* change = writer->first->new_change([this]() -> uint32_t {
-                        return mp_PDP->builtin_attributes().readerPayloadSize;
+                        return mp_PDP->builtin_attributes().writerPayloadSize;
                     },
                         NOT_ALIVE_DISPOSED_UNREGISTERED, iH);
         if (change != nullptr)
