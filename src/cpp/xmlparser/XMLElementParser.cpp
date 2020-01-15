@@ -2717,6 +2717,7 @@ XMLP_ret XMLParser::getXMLHistoryMemoryPolicy(
     else if (strcmp(text, DYNAMIC) == 0)
     {
         historyMemoryPolicy = MemoryManagementPolicy::DYNAMIC_RESERVE_MEMORY_MODE;
+    }
     else if (strcmp(text, DYNAMIC_REUSABLE) == 0)
     {
         historyMemoryPolicy = MemoryManagementPolicy::DYNAMIC_REUSABLE_MEMORY_MODE;
