@@ -463,12 +463,6 @@ public:
         return true;
     }
 
-    static uint32_t cdr_serialized_size(
-            const std::vector<rtps::octet>& data)
-    {
-        return 2 + 2 + 4 + static_cast<uint32_t>(data.size()) + 4;
-    }
-
     /**
      * Returns raw data vector.
      * @return raw data as vector of octets.

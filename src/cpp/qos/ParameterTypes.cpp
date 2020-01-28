@@ -193,12 +193,12 @@ uint32_t ParameterPropertyList_t::cdr_serialized_size(
     uint32_t ret_val = 2 + 2 + 4;
     for (auto it : data.properties)
     {
-        // str_len + str_data
-        ret_val += 4 + static_cast<uint32_t>(strlen(it.first.c_str()));
+        // str_len + null_char + str_data
+        ret_val += 4 + 1 + static_cast<uint32_t>(strlen(it.first.c_str()));
         // align
         ret_val = (ret_val + 3) & ~3;
-        // str_len + str_data
-        ret_val += 4 + static_cast<uint32_t>(strlen(it.second.c_str()));
+        // str_len + null_char + str_data
+        ret_val += 4 + 1 + static_cast<uint32_t>(strlen(it.second.c_str()));
         // align
         ret_val = (ret_val + 3) & ~3;
     }
@@ -250,8 +250,8 @@ uint32_t ParameterToken_t::cdr_serialized_size(
     // p_id + p_length
     uint32_t ret_val = 2 + 2;
 
-    // str_len + str_data
-    ret_val += 4 + static_cast<uint32_t>(strlen(data.class_id().c_str()));
+    // str_len + null_char + str_data
+    ret_val += 4 + 1 + static_cast<uint32_t>(strlen(data.class_id().c_str()));
     // align
     ret_val = (ret_val + 3) & ~3;
 
