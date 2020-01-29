@@ -845,6 +845,8 @@ void RTPSParticipantImpl::createReceiverResources(LocatorList_t& Locator_list, b
             m_receiverResourcelist.back().mp_receiver = mr;
             //Start reception
             m_receiverResourcelist.back().Receiver->RegisterReceiver(mr);
+
+            logInfo(RTPS_PARTICIPANT_LISTEN, m_guid << " Listening on " << *it_loc);
         }
         newItemsBuffer.clear();
     }
